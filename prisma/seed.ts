@@ -2,6 +2,12 @@ import { PrismaClient, Prisma } from "../app/generated/prisma";
 
 const prisma = new PrismaClient();
 
+const addDays = (days: number) => {
+  const date = new Date();
+  date.setDate(date.getDate() + days)
+  return date.toISOString();
+}
+
 const userData: Prisma.UserCreateInput[] = [
   {
     name: "Gonzalo Petraglia",
@@ -12,6 +18,7 @@ const userData: Prisma.UserCreateInput[] = [
           emails: {
             create: [
               {
+                createdAt: addDays(1),
                 name: "Elliot Latil",
                 from: "elliot.latil@gmail.com",
                 subject: "Meeting Tomorrow",
@@ -19,6 +26,7 @@ const userData: Prisma.UserCreateInput[] = [
                 labels: ["meeting"]
               },
               {
+                createdAt: addDays(3),
                 name: "Diego Bruno",
                 from: "diego.bruno@test.com",
                 subject: "Re: Project Update",
@@ -26,6 +34,7 @@ const userData: Prisma.UserCreateInput[] = [
                 labels: ["work", "important"]
               },
               {
+                createdAt: addDays(2),
                 name: "Marcos Gomez",
                 from: "marcos.gomez@hotmail.com",
                 subject: "Re: Meeting Tomorrow",
@@ -33,6 +42,7 @@ const userData: Prisma.UserCreateInput[] = [
                 labels: ["work", "meeting"]
               },
               {
+                createdAt: addDays(10),
                 name: "Martin Garcia",
                 from: "martin.garcia@gmail.com",
                 subject: "New Project",
@@ -40,6 +50,7 @@ const userData: Prisma.UserCreateInput[] = [
                 labels: ["work", "important"]
               },
               {
+                createdAt: addDays(15),
                 name: "Lourdes Lopez",
                 from: "lourdes.lopez@hotmail.com",
                 subject: "Re: Meeting",
@@ -54,6 +65,7 @@ const userData: Prisma.UserCreateInput[] = [
           emails: {
             create: [
               {
+                createdAt: addDays(3),
                 name: "Felipe Martinez",
                 from: "felipe.martinez@test.com",
                 subject: "New Budget",
@@ -61,6 +73,7 @@ const userData: Prisma.UserCreateInput[] = [
                 labels: ["meeting"]
               },
               {
+                createdAt: addDays(15),
                 name: "Maria Martinez",
                 from: "maria.martinez@gmail.com",
                 subject: "Re: New Budget",
@@ -68,6 +81,7 @@ const userData: Prisma.UserCreateInput[] = [
                 labels: ["work", "important"]
               },
               {
+                createdAt: addDays(19),
                 name: "Laura Perez",
                 from: "laura.perez@hotmail.com",
                 subject: "New Project",
