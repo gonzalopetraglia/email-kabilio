@@ -6,7 +6,11 @@ import { buildSearchParams, getParamsBySearchParams } from "~/lib/utils";
 export function SubjectSearch() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const {q: search, deleted, accountEmail} =  getParamsBySearchParams(searchParams);
+  const {
+    q: search,
+    deleted,
+    accountEmail
+  } = getParamsBySearchParams(searchParams);
 
   const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

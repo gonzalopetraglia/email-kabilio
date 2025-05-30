@@ -19,10 +19,10 @@ interface Props {
 export function MailList({ items, selected, onChange }: Props) {
   const fetcher = useFetcher();
   const [searchParams] = useSearchParams();
-    const { q, deleted, accountEmail } = useMemo(
-      () => getParamsBySearchParams(searchParams),
-      [searchParams]
-    );
+  const { q, deleted, accountEmail } = useMemo(
+    () => getParamsBySearchParams(searchParams),
+    [searchParams]
+  );
   const tags = ["work", "meeting", "important"];
 
   const handleEmailClick = (email: Email) => {

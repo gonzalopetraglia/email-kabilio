@@ -17,7 +17,7 @@ interface Props {
 export function Nav({ links, isCollapsed }: Props) {
   const { pathname, search } = useLocation();
   const location = pathname + search;
-  
+
   return (
     <div
       data-collapsed={isCollapsed}

@@ -21,7 +21,7 @@ export const getSearchParams = (urlString: string) => {
   return {
     accountEmail: url.searchParams.get("accountEmail")?.toString() || "",
     q: url.searchParams.get("q")?.toLowerCase() || "",
-    deleted: url.searchParams.get("deleted") === "true",
+    deleted: url.searchParams.get("deleted") === "true"
   };
 };
 
@@ -40,5 +40,3 @@ export const buildSearchParams = (params: Record<string, string | null>) => {
   }
   return searchParams.toString();
 };
-
-

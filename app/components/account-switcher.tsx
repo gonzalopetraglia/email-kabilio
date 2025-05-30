@@ -15,10 +15,7 @@ interface Props {
   accounts: Account[];
 }
 
-export function AccountSwitcher({
-  isCollapsed,
-  accounts
-}: Props) {
+export function AccountSwitcher({ isCollapsed, accounts }: Props) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const {
