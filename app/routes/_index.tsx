@@ -28,7 +28,7 @@ import {
 } from "~/lib/utils";
 import type { Email, User } from "~/types/types";
 
-const USER_ID = 3;
+const USER_ID = 1;
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const title = data?.emails?.some((e: Email) => e.deleted)
@@ -53,7 +53,13 @@ export const loader: LoaderFunction = async ({ request }) => {
     }
   });
 
-  if (!accountEmail && user?.accounts?.length) {
+  const accountsCount = user?.accounts?.length;
+
+  if (!accountEmail && !accountsCount) {
+    throw new Response("Not Found Accounts", { status: 400 });
+  }
+
+  if (!accountEmail && accountsCount) {
     const query = buildSearchParams({ accountEmail: user.accounts[0].email });
     return redirect("/?" + query);
   }
@@ -80,7 +86,8 @@ export const action: ActionFunction = async ({ request }) => {
   const tags = formData.get("tags")?.toString().split(",") || [];
   const query = formData.get("query")?.toString();
 
-  if (!intent || isNaN(emailId)) return redirect("/");
+  if (!intent || isNaN(emailId))
+    throw new Response("Not Found invalid intent or emailId", { status: 400 });
 
   const updateData: Record<string, unknown> = {};
   switch (intent) {
@@ -100,7 +107,7 @@ export const action: ActionFunction = async ({ request }) => {
       updateData.labels = tags;
       break;
     default:
-      return redirect("/");
+      throw new Response("Not Found intent", { status: 400 });
   }
 
   await prisma.email.update({ where: { id: emailId }, data: updateData });
@@ -228,5 +235,3 @@ export default function Index() {
     </TooltipProvider>
   );
 }
-
-
