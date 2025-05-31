@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from "@remix-run/react";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
-import { buildSearchParams, getParamsBySearchParams } from "~/lib/utils";
+import { buildSearchParams, getParamsBySearchParams } from "../lib/utils";
 
 export function SubjectSearch() {
   const navigate = useNavigate();

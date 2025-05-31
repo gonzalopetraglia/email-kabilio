@@ -2,7 +2,7 @@ import { LucideIcon } from "lucide-react";
 import { Link, useLocation } from "@remix-run/react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { buttonVariants } from "./ui/button";
-import { cn } from "~/lib/utils";
+import { cn } from "../lib/utils";
 
 interface Props {
   isCollapsed: boolean;

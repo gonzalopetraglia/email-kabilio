@@ -7,8 +7,8 @@ import {
   SelectTrigger,
   SelectValue
 } from "./ui/select";
-import { buildSearchParams, cn, getParamsBySearchParams } from "~/lib/utils";
-import type { Account } from "~/types/types";
+import { buildSearchParams, cn, getParamsBySearchParams } from "../lib/utils";
+import type { Account } from "../types/types";
 
 interface Props {
   isCollapsed: boolean;

@@ -7,8 +7,8 @@ import {
   cn,
   formatDate,
   getParamsBySearchParams
-} from "~/lib/utils";
-import type { Email } from "~/types/types";
+} from "../lib/utils";
+import type { Email } from "../types/types";
 
 interface Props {
   items: Email[];

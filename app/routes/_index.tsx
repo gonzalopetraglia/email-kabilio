@@ -6,27 +6,27 @@ import {
 } from "@remix-run/node";
 import { redirect, useLoaderData, useSearchParams } from "@remix-run/react";
 import { Inbox, Trash } from "lucide-react";
-import prisma from "lib/prisma";
-import { AccountSwitcher } from "~/components/account-switcher";
-import { MailDisplay } from "~/components/mail-display";
-import { MailList } from "~/components/mail-list";
-import { Nav } from "~/components/nav";
+import prisma from "../../lib/prisma";
+import { AccountSwitcher } from "../components/account-switcher";
+import { MailDisplay } from "../components/mail-display";
+import { MailList } from "../components/mail-list";
+import { Nav } from "../components/nav";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup
-} from "~/components/ui/resizable";
-import { Separator } from "~/components/ui/separator";
-import { SubjectSearch } from "~/components/subject-search";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
-import { TooltipProvider } from "~/components/ui/tooltip";
+} from "../components/ui/resizable";
+import { Separator } from "../components/ui/separator";
+import { SubjectSearch } from "../components/subject-search";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
+import { TooltipProvider } from "../components/ui/tooltip";
 import {
   buildSearchParams,
   cn,
   getParamsBySearchParams,
   getSearchParams
-} from "~/lib/utils";
-import type { Email, User } from "~/types/types";
+} from "../lib/utils";
+import type { Email, User } from "../types/types";
 
 const USER_ID = 1;
 
